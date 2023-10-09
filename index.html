@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrot Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="src/main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3e5d636dca.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <section class="game">
+        <section class="game--ready">
+        <h1 class="title"><img src="img/carrot.png" alt="carrot" class="carrot carrot-left">PULL OUT<img src="img/carrot.png" alt="carrot" class="carrot carrot-right"><br>THE CARROTS !</h1>
+        </section>
+        <header class="game__header">
+            <div class="levelBox">Level: <span class="level">1</span></div>
+            <button class="game__button">
+                <i class="fas fa-play"></i>
+            </button>
+            <div class="game__timer-box">
+                <img src="img/clock.png" alt="clock" class="clock">
+                <span class="game__timer">0:10</span>
+            </div>
+            
+            <span class="game__score">10</span>    
+        </header>
+        <section class="game__field">
+        </section>
+        <section class="pop-up pop-up--hide">
+            <button class="pop-up__refresh">
+                <i class="fas fa-redo"></i>
+            </button>
+            <span class="pop-up__message"></span>
+            <span class="pop-up__sub-message"></span>
+        </section>
+    </section>
+    
+</body>
+</html>

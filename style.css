@@ -1,0 +1,251 @@
+:root {
+  /* color */
+  --color-brown: rgb(78, 77, 61);
+  --color-dark-brown: rgb(58, 37, 21);
+  --color-popup-background: rgba(0, 0, 0, 0.678);
+  --color-ivory: ivory;
+  --color-beige: wheat;
+  --color-red: rgba(209, 23, 23, 0.842);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  padding-top: 50px;
+  margin: 0;
+  text-align: center;
+  background-color: black;
+  overflow: hidden;
+  font-family: 'Patua One', cursive;
+}
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.game--ready {
+  position: absolute;
+  top: 67%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-brown);
+  font-size: 50px;
+  white-space: nowrap;
+  font-weight: bolder;
+  letter-spacing: 4px;
+  z-index: 1;
+}
+.game--ready.hide {
+  display: none;
+}
+
+.game--ready .carrot-left {
+  margin: 40px 20px 0 0;
+}
+.game--ready .carrot-right {
+  margin: 40px 0 0 20px;
+}
+.game {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  max-width: 700px;
+  height: 500px;
+  background: url(img/background.png) center/cover;
+  border-radius: 30px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.game__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+.levelBox {
+  background-color: rgba(255, 248, 240, 0.918);
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: var(--color-brown);
+  font-weight: bolder;
+  position: absolute;
+  left: 50px;
+  top: 60px;
+}
+.game__button {
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  border-radius: 10px;
+  background: var(--color-brown);
+  color: orange;
+  transition: transform 300ms ease-in;
+}
+.game__button:hover {
+  transform: scale(1.1);
+}
+.game__timer-box {
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+}
+.game__timer {
+  background: var(--color-ivory);
+  font-size: 30px;
+  width: 100px;
+  border-radius: 10px;
+  user-select: none;
+  color: var(--color-dark-brown);
+}
+.clock {
+  width: 70px;
+  height: 70px;
+}
+.ring {
+  animation: ringing 500ms linear 0s infinite alternate both;
+}
+.ring-fast {
+  animation: ringing 100ms linear 0s infinite alternate both;
+}
+@keyframes ringing {
+  from {
+    transform: rotate(-3deg);
+  }
+  to {
+    transform: rotate(3deg);
+  }
+}
+.game__score {
+  font-size: 40px;
+  color: var(--color-ivory);
+  background: darkorange;
+  border-radius: 50%;
+  display: block;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  visibility: hidden;
+  user-select: none;
+}
+.game__button,
+.game__timer,
+.game__score {
+  margin-top: 10px;
+}
+.game__field {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.game__field.flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.pop-up {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: var(--color-popup-background);
+  width: 70%;
+  padding: 40px 30px;
+  color: var(--color-ivory);
+  border-radius: 20px;
+}
+.pop-up--hide {
+  display: none;
+}
+.pop-up__refresh {
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  color: var(--color-dark-brown);
+  background-color: var(--color-beige);
+  border: 3px solid black;
+  border-radius: 10px;
+  transition: transform 200ms ease-in;
+}
+.pop-up__message {
+  display: block;
+  margin-top: 8px;
+  font-size: 38px;
+  letter-spacing: 3px;
+}
+.carrot {
+  width: 70px;
+  height: 80px;
+}
+.bug {
+  width: 70px;
+  height: 50px;
+}
+.rabbit {
+  width: 80px;
+  height: 80px;
+}
+.boss {
+  position: relative;
+  width: 230px;
+  height: 220px;
+  transition: all 300ms ease;
+}
+.lost-boss__carrot {
+  position: absolute;
+  top: 65px;
+  left: -2px;
+  width: 60px;
+  height: 90px;
+  cursor: pointer;
+  -webkit-filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+  filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+  animation: float 1s linear 0s infinite alternate both;
+}
+@keyframes float {
+  from {
+    transform: translateY(0) rotate(-20deg);
+  }
+  to {
+    transform: translateY(-10px) rotate(-20deg);
+  }
+}
+
+.lost-boss.hidden,
+.lost-boss__carrot.hidden {
+  visibility: hidden;
+}
+.boss__img,
+.lost-boss__img {
+  width: 230px;
+  height: 200px;
+}
+.boss__blood-box {
+  height: 13px;
+  width: 150px;
+  background-color: var(--color-ivory);
+  margin: auto;
+  border-radius: 4px;
+}
+.boss__remained-blood {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-red);
+  border-radius: 3px;
+}
+.carrot,
+.bug,
+.rabbit {
+  transition: transform 150ms ease-in;
+}
+.carrot:hover,
+.bug:hover,
+.rabbit:hover,
+.pop-up__refresh:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.boss__img:hover {
+  cursor: pointer;
+}
